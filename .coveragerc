@@ -6,4 +6,4 @@ source = .
 [report]
 omit =
   setup.py
-  py-rpsl-via/__init__.py
+  rpsl/__init__.py
