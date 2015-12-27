@@ -13,7 +13,7 @@ else:
 setuptools.setup(
     zip_safe=False,
     name='rpsl',
-    version=rpsl_via.__version__,
+    version=rpsl.__version__,
     url='http://github.com/job/py-rpsl',
     author='Job Snijders',
     author_email='job@instituut.net',
@@ -23,7 +23,7 @@ setuptools.setup(
     include_package_data=True,
     entry_points={
         'console_scripts': [
-            'rpsl_check = rpsl_via:main'
+            'rpsllint = rpsl.cli:main'
         ]
     },
     classifiers=[

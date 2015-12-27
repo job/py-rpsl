@@ -1,0 +1,79 @@
+(*
+
+    EBNF style grammar for draft-ietf-grow-rpsl-via
+    Job Snijders <job@ntt.net>
+
+import-via: afi any.unicast AS15562 { from AS58119 action community.delete(15562:1100, 15562:1101,15562:1102, 15562:1200,15562:1201, 15562:1300,15562:1301,15562:1302, 15562:2100,15562:2101,15562:2102); community.append(15562:1300); accept ANY; } REFINE afi ipv6.unicast { from AS58119 accept fltr-iana-allocated-v6 AND NOT fltr-martian-v6 AND NOT fltr-bogons-v6 AND NOT AS15562:RS-MU-LISP-DDT-ROOT^+; } REFINE afi ipv6.unicast { from AS58119 2001:67C:88:FFFE::1 at 2001:67C:88:FFFE::2 action community.append(15562:2401); accept ANY; } REFINE afi ipv4.unicast { from AS58119 accept {0.0.0.0/0^8-24} AND NOT fltr-martian AND NOT fltr-bogons AND NOT AS15562:RS-MU-LISP-DDT-ROOT^+; } REFINE afi ipv4.unicast { from AS58119 91.199.218.249 at 91.199.218.250 action community.append(15562:2402); accept ANY; }
+export-via: afi any.unicast AS15562 { to AS58119 announce AS15562:RS-SNIJDERSIT AND NOT community(NO_EXPORT); } REFINE afi ipv6.unicast { to AS58119 2001:67C:88:FFFE::1 at 2001:67C:88:FFFE::2 action community.append(15562:2401); announce ANY; } REFINE afi ipv4.unicast { to AS58119 91.199.218.249 at 91.199.218.250 action community.append(15562:2402); announce ANY; }
+import-via:     afi ipv6.unicast AS6777 from AS-ANY accept ANY
+export-via:     afi ipv6.unicast AS6777 to AS-ANY announce NOT ANY
+import-via:     AS6777 from AS-ANY accept ANY
+export-via:     AS6777 to AS-ANY announce AS-EDXNETWORK
+
+*)
+
+tkn_protocol = "protocol" ~ ;
+tkn_from     = "from"     ~ ;
+tkn_into     = "into"     ~ ;
+tkn_to       = "to"       ~ ;
+tkn_action   = "action"   ~ ;
+tkn_accept   = "accept"   ~ ;
+tkn_announce = "announce" ~ ;
+
+start
+    =
+    @:{rule}+
+    $
+;
+
+rule
+    =
+    "import-via:" import_expr ~
+    | "export-via:" export_expr ~
+;
+
+import_expr
+    =
+    [ afi ] as_group tkn_from as_group tkn_accept Rest
+;
+
+export_expr
+    =
+    [ afi ] as_group tkn_to as_group tkn_announce Rest
+;
+
+as_group
+    =
+    asn
+    | as_set
+;
+
+as_set
+    =
+    /AS-[a-zA-Z0-9:-]+/
+;
+
+afi
+    =
+    "afi" ~ afi_value
+;
+
+afi_value
+    =
+    "ipv4.unicast"
+    | "ipv4.multicast"
+    | "ipv4"
+    | "ipv6.unicast"
+    | "ipv6.multicast"
+    | "ipv6"
+    | "any"
+    | "any.unicast"
+    | "any.multicast"
+;
+
+asn = /AS[0-9]{1,10}/ ~ ;
+
+(* temp hack *)
+Rest = /.*$/ ;
+
+
