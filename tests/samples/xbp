@@ -1,0 +1,1 @@
+import-via:     afi ipv4.unicast AS6777  from AS5413:AS-ROUTE-SERVER-AMS-IX accept ANY;

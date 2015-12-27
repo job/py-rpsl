@@ -1,0 +1,1 @@
+export-via:     AS6777 to AS-ANY EXCEPT AS-DANCOM:AS-EXCEPTIONS announce AS-DANCOM

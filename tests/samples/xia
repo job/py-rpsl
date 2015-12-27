@@ -1,0 +1,1 @@
+export-via:     afi ipv6.unicast AS49624 to AS39180 ANNOUNCE AS-VOIPGATE

@@ -1,0 +1,1 @@
+export-via:     afi ipv6.unicast AS1930 to AS-ANY announce AS-BITCANAL

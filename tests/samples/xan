@@ -1,0 +1,1 @@
+import-via:     afi any.unicast AS6777 from AS-ANY EXCEPT AS2914 accept AS-AMS-IX-RS

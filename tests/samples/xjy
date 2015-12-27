@@ -1,0 +1,1 @@
+import-via:     afi ipv6.unicast AS6777 from AS-AMS-IX-RS-SETS-V6 EXCEPT AS51752:AS-AMS-IX-RS-EXCLUDED accept ANY

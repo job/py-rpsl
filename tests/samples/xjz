@@ -1,0 +1,1 @@
+export-via:     afi ipv6.unicast AS6777 to AS-ANY EXCEPT AS51752:AS-AMS-IX-RS-EXCLUDED announce AS-WTBTS

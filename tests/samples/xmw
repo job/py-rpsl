@@ -1,0 +1,1 @@
+import-via:     afi ipv6.unicast AS26162 from AS-ANY accept ANY

@@ -1,0 +1,1 @@
+import-via:     AS6777 from AS-ANY EXCEPT AS8767:AS-AMSIX-NO-RS accept ANY

@@ -1,0 +1,1 @@
+import-via:     afi any.unicast AS24115 from AS-ANY accept ANY

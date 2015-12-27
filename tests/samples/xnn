@@ -1,0 +1,1 @@
+export-via:     afi ipv6.unicast AS6695 to AS-DECIX announce AS-DTSRETEIVO

@@ -1,0 +1,1 @@
+export-via:     AS6777 to AS-ANY EXCEPT AS16347:AS-AMSIX-RS-EXCEPT announce AS-RMI

@@ -1,0 +1,1 @@
+export-via:     afi ipv6.unicast AS9033 to AS-ECIX-FRA ANNOUNCE AS-VOIPGATE

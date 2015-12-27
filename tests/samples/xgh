@@ -1,0 +1,1 @@
+import-via:     afi ipv6.unicast AS49624 from AS8632 ACCEPT AS-LOL

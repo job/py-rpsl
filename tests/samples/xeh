@@ -1,0 +1,1 @@
+import-via:     AS6695 from AS-ANY EXCEPT AS-TRANSATEL action pref=200; accept ANY

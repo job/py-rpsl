@@ -1,0 +1,1 @@
+export-via: AS34307  to AS-ANY  announce AS200130 AND NOT {0.0.0.0/0}

@@ -1,0 +1,1 @@
+import-via:     afi ipv6.unicast AS9033 from AS-ECIX-FRA ACCEPT AS-ECIX-FRA

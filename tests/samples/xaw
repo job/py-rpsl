@@ -1,0 +1,1 @@
+export-via:     AS51706 to AS-ANY EXCEPT AS15169 announce AS-WARWICKNET
