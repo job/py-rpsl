@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import io
 import setuptools
-import rpsl_via
+import rpsl
 
 try:
     from Cython.Build import cythonize
@@ -12,9 +12,9 @@ else:
 
 setuptools.setup(
     zip_safe=False,
-    name='rpsl_via',
+    name='rpsl',
     version=rpsl_via.__version__,
-    url='http://github.com/job/py-rpsl_via',
+    url='http://github.com/job/py-rpsl',
     author='Job Snijders',
     author_email='job@instituut.net',
     description='Python implementation of RPSL-VIA',
@@ -23,7 +23,7 @@ setuptools.setup(
     include_package_data=True,
     entry_points={
         'console_scripts': [
-            'rpsl_via_check = rpsl_via:main'
+            'rpsl_check = rpsl_via:main'
         ]
     },
     classifiers=[
@@ -45,13 +45,13 @@ setuptools.setup(
         'future-regex': ['regex']
     },
     ext_modules=cythonize(
-        "rpsl_via/**/*.py",
+        "rpsl/**/*.py",
         exclude=[
-            'rpsl_via/__main__.py',
-            'rpsl_via/__init__.py',
-            'rpsl_via/codegen/__init__.py',
-            'rpsl_via/test/__main__.py',
-            'rpsl_via/test/*.py'
+            'rpsl/__main__.py',
+            'rpsl/__init__.py',
+            'rpsl/codegen/__init__.py',
+            'rpsl/test/__main__.py',
+            'rpsl/test/*.py'
         ]
     ) if CYTHON else [],
 )
